@@ -1,0 +1,52 @@
+<app-navbar></app-navbar>
+<br><br>
+<div class="container" *ngIf="products">
+    <div class="row">
+        <div class="col-md-12">
+            <h3 class="heading">User Cart</h3>
+            <br>
+            <table class="table table-sm">
+
+                <tr>
+                <th>Action</th>
+                <th>Image</th>
+                <th>Prouct</th>
+                <th>Price</th>
+                <th>Qty.</th>
+                <th>Total</th>
+            </tr>
+            <tr *ngFor="let row of products">
+                <td style="vertical-align: middle;">
+                    <button class="btn btn-danger" (click)="del_cart(row.product_econ_cart_id)">
+                        <i class="fa fa-trash" ></i>
+                    </button>
+                </td>
+                <td style="width: 5%;" class="pt-3  pb-3">
+                    <img [src]="row.product_img" width="100px">
+                </td>
+                <td style="vertical-align: middle;font-size: 20px;">{{row.product_name}}</td>
+                <td style="vertical-align: middle;font-size: 20px;">₹ {{row.price}} /-</td>
+                <td style="vertical-align: middle;font-size: 20px;">
+                    <button (click)="desc(row.product_econ_cart_id)" class="btn btn-dark">-</button>
+                    {{row.qty}}
+                    <button (click)="inc(row.product_econ_cart_id)" class="btn btn-dark">+</button>
+
+
+                </td>
+                <td style="vertical-align: middle;font-size: 20px;">₹ {{row.qty * row.price}} /-</td>
+            </tr>
+            <tr>
+                <th colspan="5" style="font-size: 20px;font-weight: bold;text-align: right;">
+                    TOTAL: 
+                </th>
+                <th style="font-size: 20px;font-weight: bold;">
+                    ₹ {{getTotal()}} /-
+                </th>
+            </tr>
+            </table>
+        </div>
+        <div class="col-md-12 text-center mb-3">
+            <button class="btn btn-primary" routerLink="/place_order"> Place Order</button>
+        </div>
+    </div>
+</div>

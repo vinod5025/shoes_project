@@ -1,0 +1,21 @@
+  <app-navbar></app-navbar>
+  <body>
+    <main>
+        <div class="container" *ngIf="prouduct_info">
+            <div class="row">
+                <div class="col-md-5">
+                    <img class="headset" [src]="prouduct_info.product_img" width="100%" >
+                </div>
+                <div class="col-md-7">
+                    <div id="cart-text">
+                        {{prouduct_info.cat_name}}
+                        <h2>{{prouduct_info.product_name}}</h2>
+                        <h2>₹ {{prouduct_info.price}} /-</h2>
+                        <button class="add-to-cart btn btn-primary"  *ngIf="prouduct_info.cart == 'No'" (click)="addToCart()">Add to Cart</button>
+                        <button class="add-to-cart btn btn-primary btn-sm p-2" *ngIf="prouduct_info.cart == 'Yes'" routerLink="/cart">Added In Cart</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+  </body>

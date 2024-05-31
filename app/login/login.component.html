@@ -1,0 +1,25 @@
+<app-navbar></app-navbar>
+<br><br>
+<form #loginForm="ngForm" (ngSubmit)="login(loginForm)">
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="col-md-6">
+                <div class="border shadow p-4">
+                    <h3 class="heading">Login</h3>
+                    <br>
+                    Enter Mobile
+                    <input type="number" class="form-control" name="user_mobile" ngModel>
+                    <br>
+                    Enter Pasword
+                    <input type="password" class="form-control" name="user_password" ngModel>
+                    <br>
+                    <Button class="btn btn-primary me-5">Login Now</Button>
+                    <br><br>
+                    New User <span routerLink="/create_account">Create Account</span>
+
+                </div>
+
+            </div>
+        </div>
+    </div>
+</form>

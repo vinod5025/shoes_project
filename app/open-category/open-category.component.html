@@ -1,0 +1,22 @@
+<app-navbar></app-navbar>
+<br><br>
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+<div class="container bg-white">
+    <div class="row">
+        <div class="col-md-13">
+            <h3 class="heading">{{cat_name}} Products</h3>
+        </div>
+        <div class="col-lg-3 col-sm-6 d-flex flex-column align-items-center justify-content-center product-item my-3 " *ngFor="let row of products" routerLink="/products_details/{{row.product_tbl_id}}">
+            <div class="product"> <img [src]="row.product_img" width="100px"  style="border-radius: 5px;border-bottom: 1px solid black;">
+            </div>
+            <div class="title pt-4 pb-1"> {{row.product_name}}</div>
+            <div class="d-flex align-content-center justify-content-center">
+            <div class="price">₹ {{row.price}} /-</div>
+        </div>
+    </div>
+</div>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" 
+integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+
+
+

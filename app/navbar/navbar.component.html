@@ -1,0 +1,24 @@
+<nav class="navbar navbar-expand-md bg-dark navbar-dark" style="
+position: sticky; top: 0px;z-index: 9999999;">
+    <!-- Brand -->
+    <a class="navbar-brand text-white" routerLink="/" >Footware Shop</a>
+  
+    <!-- Toggler/collapsibe Button -->
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapsibleNavbar">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+  
+    <!-- Navbar links -->
+      <div class="collapse navbar-collapse" id="collapsibleNavbar">
+    <ul class="navbar-nav">
+      <li class="nav-item" *ngFor="let row of cat_list">
+      <a class="nav-link" routerLink="/open_category/{{row.cat_id}}/{{row.cat_name}}">{{row.cat_name}}</a>
+    </li>
+    </ul>
+    <button *ngIf="allready_login" class="btn btn-primary" routerLink="/profile" style="position: absolute;right: 20px;"><i class="fa-solid fa-user"></i></button>
+    <button *ngIf="!allready_login" class="btn btn-primary" routerLink="/login" style="position: absolute;right: 40px;">Login</button>
+    <button *ngIf="allready_login" class="btn btn-danger p-2 m-2" (click)="logout()" style="position: absolute;right: 70px;"><i class="fa-solid fa-right-from-bracket"></i></button>
+    <button *ngIf="allready_login" routerLink="/cart" style="position: absolute;right: 120px;border-radius: 5px;"><i class="fa-solid fa-cart-shopping p-2"></i></button>
+    <button *ngIf="allready_login" routerLink="/my_orders" style="position: absolute;right: 180px;border-radius: 5px;">My Orders</button>
+    </div>
+  </nav>
